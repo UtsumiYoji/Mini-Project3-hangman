@@ -9,7 +9,6 @@ class hangman:
     def game(self):
         word = random.choice(self.words)
         word = word.lower()
-        print(word)
         guessed = "_" * len(word)
         guessed = list(guessed)
         lstguessed = []
