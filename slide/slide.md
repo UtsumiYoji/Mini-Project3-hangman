@@ -36,12 +36,15 @@ Yoji
 
 ## Objective
 
-Create simple to-do-console-application.
+Create simple hangman-game.
 
 ## Features
 
-User can add, view, remove tasks.
-And also, application suggest task depend on priority and deadline.
+User can input 1-letter.
+Game has to show
+- What letters user has guessed
+- What letters is correct or not
+- How many guess count user still has
 
 ---
 
