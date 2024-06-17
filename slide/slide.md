@@ -82,7 +82,7 @@ elif letter in lstguessed:
 
 ---
 
-## Coding - Game logic
+# Coding - Game logic
 
 - Make sure letter in the correct word
    - Update guessed
