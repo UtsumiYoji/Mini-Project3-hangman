@@ -27,6 +27,7 @@ Yoji
    1. Word list
    2. Validation
    3. Game logic
+   4. Additonal function - Ranking
 3. Demonstration
 4. Conclusion
 
@@ -107,6 +108,44 @@ if "_" not in guessed:
 
 ---
 
+# Additonal function - Ranking
+
+When initialize hangman-class, read Ranking list
+```python
+if os.path.isfile("ranking.json"):
+    with open("ranking.json", "r") as file:
+        self.ranking = json.load(file)
+else:
+    self.ranking = list()
+```
+
+When user win game, game ask user to want to save
+```python
+if input("Do you want to save your score? (yes/no): ").lower() == "yes":
+    name = input("Please enter your name: ")
+    self.ranking.append({"name": name, "tries": tries})
+    self.ranking = sorted(self.ranking, key=lambda k: k["tries"], reverse=True)
+    self.ranking = self.ranking[:5]
+
+    print("\nTop 5 ranking:")
+    for i, player in enumerate(self.ranking):
+        print(f"{i+1}. {player['name']} with {player['tries']} tries left.")
+```
+
+---
+
+<!-- _class: top -->
+
+When user close game (destruct hangman-class), ranking-data is saved as json file
+
+```python
+def __del__(self):
+    if self.ranking:
+        with open("ranking.json", "w") as file:
+            json.dump(self.ranking, file)
+```
+
+---
 
 # Demonstration
 
